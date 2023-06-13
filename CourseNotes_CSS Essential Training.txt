@@ -1,0 +1,582 @@
+Course Title: CSS Essential Training
+
+Description: Cascading Style Sheets (CSS) is a stylesheet language that allows you to control the appearance of your webpages. In this hands-on course, Christina Truong demonstrates the concepts that form the foundation of CSS, explaining what you need to know to tweak existing CSS and write your own. Christina explains how to add colors and other design elements to take your webpages beyond just black text on a white background. She shows how to use selectors, how the box model defines the spacing and sizing of page elements, and how to style text and manage basic layouts with Flexbox and Grid. She also covers working with advanced selectors, creating fluid layouts, and determining when to use the float and position properties. Plus, at the end of the course, you'll walk away with an actual project—an online résumé page.
+
+
+***********************************************
+Chapter: Introduction
+***********************************************
+
+
+-----------------------------------------------
+Video: Tools and sample projects
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:01:15            -> CSS course - for formatting how webpages look -> structure, styles, layouts. Pre-requisites -> HTML, text editors. Tools / sample projects -> first, small code samples (codepen, like overleaf but for code), second, exercise files are on git w/ Links pdf file 
+
+
+***********************************************
+Chapter: 1. Getting Started
+***********************************************
+
+
+-----------------------------------------------
+Video: Browser developer tools
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:03:01            -> fundamentals of CSS -> but HTML also involved. HTML was originally created for sharing research documents. HTML is for the meaning/ marking up a webpage, but CSS is for its appearance. Browser developer tools -> if you go onto a website you can right click on the page and inspect the HTML, CSS and Java. To see the HTML of a website in Safari the settings first need changing. Then you can right click on the webpage and inspect element -> these are dev tools (looks slightly different in each browser) 
+
+
+-----------------------------------------------
+Video: Referencing CSS
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:02:47            -> adding CSS to HTML -> 1. As a separate file (link tag - in <head> there is a <link rel="stylesheet" href="the path to the css file" type = "text/css" <- type is older, it's almost referencing a CSS file from an HTML file - there can be multiple CSS files, break down the appearance for the buttons/ font etc / @import method <- this imports smaller CSS files into another CSS file, which is loaded into an HTML file using the link method. This is a less common method because it slows the process down -> import affecting page load time. Sass is a another file type used here). 
+
+0:04:28            -> inline <p style="color:red;">red paragraph</p> <- this is a style attribute, if you add multiple it becomes harder to read and adds more potential for conflict. So -> <p style="color: blue;"> paragraph </p> <- the colour goes as an attribute inside the paragraph tag. Internal CSS -> this is another method where CSS adds style to all elements of a certain type, rather than them individually. This adds <style> inside the header of the HTML document -> this can be in addition to adding CSS to individual sections of code 
+
+
+-----------------------------------------------
+Video: Project overview and setup
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:03:38            -> this video course is a tutorial project for an HTML website. When naming files, use all lower cases and-dashes-between-words. Folders are also used for individual file types, for instance images and CSS folders (kept separate for this project). Importance of backing it up as go along. For the site to show on the web, you need to upload it to a server which looks for an index file. index.html is the homepage. Add as much content first before CSS styling it, there are also links to meettheipsums which generates different font styles 
+
+
+-----------------------------------------------
+Video: Optimizing images and retina displays
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:02:41            -> optimising for search engines -> choosing the right dimensions -> there are different image dimensions for phones for instance. The retina display -> high pixel density displays (Apple), high pixel density screen (ppi = pixels per inch). The support these screens, you use an image which is twice the size and resize it with CSS, so in lower density displays it appears according to the screen resolution and with retina displays it's fine. Project thumbnails -> 600px width, background images 1400px to 2000px width 
+
+
+-----------------------------------------------
+Video: Project: Relative paths
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:44            -> linking different files together for the same website (e.g referencing a CSS file/ image) -> link to files within the directory (relative and direct paths). In this case, we have a folder where index.html is located -> and this contains the images we want to include in the webpage. 
+
+0:03:43            -> if you are working in VS code, it automatically suggests the files in the directory you type. Images are shown in the same size as the file contains. Creating a CSS file to re-size the images -> create one specific CSS file just for styling. Then link to the CSS file in the HTML file, in the <head>. So, in the HTML file whenever we want to format something we make a CSS file and link to it. In the HTML file you just type 'link' and enter in VS code and it formats it. Then the href is the path to the CSS file - using a relative path. To test if they're linked then change something simple in the CSS file and test it -> this changes all of the images so they have the same width on the page 
+
+
+-----------------------------------------------
+Video: Absolute paths
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:02:19            -> to see if the changes work or not then open the html file in the browser, make a change, save it and refresh the page. Absolute paths are located on a server -> for instance href -> but you shouldn't link to certain images / files on a webpage (hot linking, this is using their bandwidth, like their internet - it's possible to do this if it's specifically for that service). For instance, picsum photos which has its own paths states. There are also route relative paths -> / at the beginning of the href value -> assumes the URL is the same as the current URL (but it has to be viewed on a local server) 
+
+0:02:24            -> outside paths for outside sources 
+
+
+***********************************************
+Chapter: 2. Core Concepts
+***********************************************
+
+
+-----------------------------------------------
+Video: CSS specifications and the W3C
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:02:49            -> W3C <- World Wide Web consortium -> create web standards and guidelines. CSS = cascading style sheets, the entire W3 guidelines include a lot of extensive technical terms, and are used to look up information for CSS. It's like the official documentation / specification for CSS. It's split into individual modules -> CSS3 is updates after CSS2, but the entire thing is CSS. There are also status codes -> candidate / proposed recommendations are ones which are set to become new standards. Superseded -> past ones which have been replaced 
+
+0:03:21            -> Mozilla networks developer for CSS guide -> for resources, also links to W3C documentation (the standard specifications for CSS) 
+
+
+-----------------------------------------------
+Video: CSS values and units
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:24            -> CSS -> img {........} <- img is the selector (what is being edited), {} is the declaration block (e.g width: 300px). You can use shorthand and longhand syntax -> padding e.g, vs stating the individual dimensions. CSS comments are /* and */ -> the first half of the course was making the webpage in HTML, and the second half is formatting it in CSS files which are linked to it. Code Guide is a website for CSS formatting -> be consistent / use organisational style which makes sense 
+
+0:02:59            -> CSS values and units -> e.g pc, %, deg, ms. <length> can be used with absolute / relative units (absolute are the same e.g mm) and relative are dependent on other factors -> em, ten, vw, vh -> some don't require units. Functions can have different units associated with them -> rotation function associated with degrees. Initial values are the same thing as default styles. Initial values -> h1 {font-weight bold}, default value is bold and to change it you can use font weight (to un-bold a title). You don't have to re-state defaults 
+
+
+-----------------------------------------------
+Video: The color and property values
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:03:28            -> colour property -> keywords -> colours.neilorangepeel.com for the different names of the colours. You can also use hexadecimal / functional values for the colours (#from 0-9 and A-F, 6 characters, #rrggbb and the letters are case insensitive, there are shorthand and longhand forms), rgb(0,0,0) e.g it can be done in coordinates and there can be % opacities involved, these are called alpha channels. hsl -> hue saturation lightness, the hue is an angle relative to red (red is 0 and 360, it's angles on a colour wheel), saturation is a percentage and as is lightness -> 0% is white and 100% is black, the alpha channel is for opacity and can also be represented by a decimal 
+
+0:04:12            -> different resources - photoshop, sketch, Neil orange.com, CSS tricks, random ally (these are for high contrast for colour blind people), coolors (you can spacebar to stop it from changing colours) 
+
+
+-----------------------------------------------
+Video: Class and ID selectors
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:00            -> CSS selectors -> select an element in the HTML file and apply a style to it -> h1 {.....}, then there is the universal selector * {.....} <- this selects everything and adds styles. In code pen (like overleaf but for websites), starts off with *{color: red;} <- makes all of the text in the HTML file red, then h1 {color: blue;} <- this changes the colour of the h1 heading, can repeat the process for h2 heading 
+
+
+-----------------------------------------------
+Video: Class and ID selector exercise
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:00            -> if type selectors are too general -> class and id selectors -> class -> <p class = "fancy"> text </p> <- these can be reused, you can also do <p class = "fancy intro ">, and ids <div id="container"> -> ids are not reusable. They can also be used for in page linking -> i.e like cross referencing something on a website (in page linking), <section id="example"> Link here </section>, and to reference it in the website #example {....}. Name conventions -> use class-name or class_name, for instance (and descriptive names), abbreviations btn (ask if you could understand it if you came back to the code in 6 months/ agree with other people what the naming conventions are if working in a group) 
+
+0:00:32            -> class and id selectors -> this entire video is explaining how you can define classes of objects <p class="example"> in HTML, reference them in CSS and format them there. So the HTML is for the code for the web page and the CSS is for the formatting / styling of it. You create the webpage in HTML, define certain things as classes if you want formatted in a specific way and then in CSS you can define what that style/ formatting is. In this case, she's done multiple examples -> where she's defined a class for the heading and made it orange 
+
+0:03:26            -> <p class="example"> text </p>. Then in CSS .example{color:orange;}. Or class = "example example2", you can add a .class2 in the CSS file (a separate one, e.g with background = black), to select both of them it's in CSS .example.example2 {......}. Another one is <p id="example" class="example"> Test </p>, and then in CSS it's #example{font-size: 100px} <- so if you want to format a specific element it's id in the tag, and then you can edit that specific tag in CSS using #tag_name {.....}, vs an entire class of objects 
+
+
+-----------------------------------------------
+Video: Descendant selectors
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:01:27            -> the course is split into videos on the theory of CSS, and then videos for the project -> it's a series of videos on the theory, then project, then theory, then project. Now we're looking at dependent selectors -> DOM (when a tag is nested in a tag, the document object model shows this), there are different relationships which are sibling elements for instance in this case. Dependent elements are for nested relationships -> if we're nesting different links for instance a link in a paragraph, there are certain patterns of nesting / dependent elements 
+
+0:03:41            -> codepen example: (like overleaf for latex), formatting links differently depending on if they're nested or not. command / to comment / uncomment code in VS code. There is an example with three different cases - a section with two links, one in a paragraph and one not and the section with a class "container" (<section class="container">  and then a link outside of that and not in a paragraph. We have three links, and she's using CSS to target specific ones and change their colour, depending on the format. a{} in CSS changes all of them, section a{} is changing the links which are in the class container, and section p a is a in paragraphs, when there is a conflict (a line of code sets some colour and then another line of code sets the same thing a different colour, we choose the one which is higher up on the hierarchy, this is called specificity) 
+
+
+-----------------------------------------------
+Video: Inheritance and specificity
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:00            -> applying same styles to different elements -> grouping selectors into one declaration block -> to apply the style for multiple elements in the list, the comma isn't optional but the spaces are, section h1, section h2 {} <- section h1 and section h2 -> this reduces the number of declarations. E.g in CSS h1, h2, h3 {}. You can combine classes by e.g <p class = "fancy intro"> text </p>. Another example to combine them is .intro{....} and p.intro{...} -> start with general styles first 
+
+0:03:19            -> inheritance -> styles can be inherited from the ancestor to descendant elements -> you define a style for something and the things which are nested inside it can inherit that style. E.g body{color} will style the headings inside it. There is a list of properties which can and can't be inherited in the W3 specifications -> you can also test it to see what is inherited and what isn't. Specificity -> how browsers decide the precedence if there are conflicting styles -> they rank according to universal (*), type (p), class (.), id (#). Code pen (~ Overleaf) example for this: id is the highest rank. It is actually calculating the specificity based off of the context, to see what overrides what -> depending on the number of id / class/ attribute / type element selectors, the universal has a specificity of 0 -> the entire point of doing this is if you have multiple id values for example in the case you are looking at 
+
+0:04:22            -> online specificity counter -> types symbols into it and it calculates their specificities, for instance p a -> it's comparing two of them to see which has a higher specificity score -> and thereby which formatting would be preferred by the HTML page in the CSS 
+
+
+-----------------------------------------------
+Video: The cascade and importance
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:01:43            -> cascade and cascading stylesheets -> how style sheets are applied -> the declaration that is loaded last takes precedence. CSS cascading style sheets, we have HTML and the style sheet is the file which styles that section of HTML. This is essentially saying -> which of those sheets takes precedence if there are conflicts between something should be styled in the code? Organising CSS into blocks helps avoid errors, there is an important keyword which overrides the style declarations -> e.g in CSS p {..... !important} -> but it's not recommended to use this because it doesn't adhere to many rules 
+
+
+-----------------------------------------------
+Video: Project: Adding colors
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:05:25            -> my notes for this video are commented in the CSS/ HTML files 
+
+
+-----------------------------------------------
+Video: Pseudo-class selectors and links
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:02:27            -> pseudoclass selectors -> ;and_no_spaces -> if you click on a link it's colour changes -> if all of them have the same href attribute then the browser thinks its the same link (these are selectors which change when the user interacts with them). You can change the colour of the link on the webpage when it's clicked on using a:link {color: .....;} in CSS, which can help to filter through the webpage. In HTML, we have <a href="#"> text <a> 
+
+0:04:49            -> focus -> there is a different default for Firefox on a Mac -> it's if you select the links and 'focus' over then using tab -> you click on an area and press the tab key there is a light blue box around the link -> and you can change its colour using a:focus{ outline in CSS -> it can also be used to shade the background over a link -> it's not for touch screen devices. Active pseudo classes -> in this case for instance, the link has an active pseudo class which happens when the link is hovered over (there is an active and visited state for the link). Cascading rules also apply here 
+
+
+-----------------------------------------------
+Video: Project: Styling links
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:07:58            -> hover doesn't apply to touch screens. She didn't apply a button class from the beginning because she was going as she went along 
+
+
+***********************************************
+Chapter: 3. The Box Model
+***********************************************
+
+
+-----------------------------------------------
+Video: Inline, block, and display
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:00            -> how HTML is rendered in the browser -> all the elements are rendered as a box on a webpage <- CSS box model, how elements are sized, positions in relation to each other <- essentially a webpage is a combination of boxes. Inline, block, width, height, padding, margin, border 
+
+0:03:05            -> so, elements on a webpage have boxes around them. The boxes can be in a line (inline) or on top of each other in blocks (block). They add on a page in the same order you read if it's inline, and you can change something from block to inline in CSS. So, each element is either inline or block, and if you set a background on a block element you can change its background colour (background), width and height in pixels. You can change a block to an inline using display: block; or display: inline; in CSS. Block elements can change the background size, but inline can't. But, inlines are shown next to each other and block elements are stacked on top of each other like boxes. To get text which can change the size of the background and which is shown next to each other like inline, use display: inline-block; in CSS 
+
+
+-----------------------------------------------
+Video: The box model properties
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:01:48            -> box properties -> since HTLM websites are made of combinations of boxes, there are different sections of each box -> there is the content, then the padding, then the border and margin. Elements you can change --> width, height, padding, margin (space around it), border. Percentage units -> width: 50% -> in a container. E.g in CSS .container { width: 1000px; } .inside-container: width: 50%;} <- the width is 50% of the width of the container. These can be set in different units (px, cm etc most common is px). Relative lengths -> lengths as a function of the length of other elements 
+
+
+-----------------------------------------------
+Video: The box properties syntax and usage
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:01            theory -> width (this changes for block elements, unless the display property is
+altered). Padding -> padding-top: ...px <- and this changes from top to right / left etc -> there is also shorthand
+notation for this -> padding: ...px, ....px, ....px, ....px (this moves clockwise) and the values have the be
+positive. Margin -> this feature goes around an entire element and unlike padding, it can be negative. The third
+property this video looks at is border -> border: width style colour; in this example she’s done border: 2px solid
+red -> options instead of solid are none, dotted and dashed. The total width is the sum of the individual pixels 
+
+
+-----------------------------------------------
+Video: Debugging the box model
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:03:20            theory -> play around with it (the box model in HTML). You can ‘inspect
+element’ when you are on a web page in a browser -> hover over the elements you like and see how they’ve
+been designed using HTML. In the CSS file, there is a visualisation of the box model (you can uncheck
+certain values). There is no left / right hand default margin -> the next video looks at margin collapsing,
+where two margins (one above and one below) are overlapping / need formatting 
+
+
+-----------------------------------------------
+Video: Padding, margin, and border
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:03            theory -> distinguishing between them. Padding: ...px; background: light green; -> margin
+collapsing <- when one lower margin overlaps with one higher margin, there is a gap in the backgrounds between
+them. .first{margin-bottom: 0;} <- class=“first” in HTML. Padding is for all axes, and margins are for the left and
+right hand sides of the page (unless it says display: inline block;). Negative margins shift it (there is no negative
+padding) -> the font-size: 16px; (in this example) 
+
+
+-----------------------------------------------
+Video: Margin and layouts
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:02:26            -> theory -> negative margins remove space in between elements
+(they shift HTML boxes along the y axis). Width: ...px, margin: 0autoj <- centre
+aligns it. Flexbox can vertically align them -> if you want content to centre align
+and backgrounds not to -> you define a container for the content. To do this add a
+div around the content, and set the class to “content wrap.” Then, use CSS to
+specifically format the content wrap -> content wrap {width: 950px; margin: 0auto;}
+<- .work{background:blue;} (in this example) 
+
+
+***********************************************
+Chapter: 4. Typography
+***********************************************
+
+
+-----------------------------------------------
+Video: Typography for the web
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:02:48            -> theory -> formatting text -> typeface is similar
+to font. There are different types of these -> comic sans (casual), times
+(originally designed for legal documents), script (wedding invitations),
+decorative (ornamental), monospace (where all characters are the same
+width, this is used for code), serif (traditional), sans-serif (not decorative,
+modern) 
+
+
+-----------------------------------------------
+Video: Changing the font-family
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:00            -> theory -> body {font-family: font-1, f-2, f-3;} <- you give the computer multiple fonts and it chooses the one it has. Serif, sans-serif, fantasy, monospace. Web-safe fonts (see ssfontstack.com). /!, or "!", or '!' <- add quotes around font family names because of symbols 
+
+
+-----------------------------------------------
+Video: Font-weight and font-style
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:02:33            -> theory -> font-weight: 100; <- this is the least bold, 900 is the most bold. Normal = 400 (this is default text), 700 is the default for a heading. There are also bolder and lighter styles, depending on the inherited font-weight. Font-style: italic; vs normal / <ems> for in text <- in other words, if you want italics you can use <em> in text and if not you can define the style of the text using classifiers in HTML and format them in CSS 
+
+
+-----------------------------------------------
+Video: Web fonts with @font-face
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:02:49            -> you can download font faces -> @font-face { font-family: "My font"; src: url(my-font.woff); src:url(...); path*/} <- there are specific files for fonts. You can also use " " or ' ' and can save the file for the font (a ttf file). You can design your own fonts using font squirrel -> wolf and woff2 in Google fonts resemble those used for scientific writing, and if you use ones which other people have designed they often have licensing files 
+
+
+-----------------------------------------------
+Video: Web fonts with Google Fonts
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:02:00            -> theory of fonts -> adobe fonts (you can link to their CSS fonts). A free alternative is Google fonts. There are also decorative fonts - you can pick fronts Google fonts 
+
+
+-----------------------------------------------
+Video: The font-size property
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:03:57            -> theory of units for websites -> font-size: the units of this are px, em and rem. There are also relative values vs absolute units (compares to descendent elements). Whole pixels (this is a unit commonly used in older browsers). m -> the size is relative to its nearest neighbour element, 1em is the inherited font size. Rem -> this is room em (relative to the rest / HTML element). em is a unit for the default size of a nested element above if (for instance parent etc named in classes). Codepen -> this is the website she does HTML examples in -> it's like Overleaf for Latex, but for HTML (see documentation) 
+
+
+-----------------------------------------------
+Video: Font shorthand
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:01:42            -> theory -> font style / size / weight / family / variant / line height -> instead of listing attributes on multiple lines, you can list them on one line (this is called shorthand). Font-style / variant / weight have to come before font-size. Font-variant, in normal or small capitals only. Font family has to be the last value stated, more information about this is on MDN web docs 
+
+
+-----------------------------------------------
+Video: Text-decoration, text-align, and line-height
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:03:37            -> text decoration, underline red solid <- example of shorthand (line / colour / style). There are more examples of this on MDN web docs. Another concept is text-align -> this aligns content in a block element (which can be inherited). {h1 text-align: centre; } <- this is only for block elements, not inline elements (change inline to block via display: block;}. This can also be done in the header via: text-align: centre; <- the entire page inherits it. Another method is text-align: justify; <- the text is evenly spaced across the left and right hand ides of the page (like a newspaper). The other attribute is line-height (this controls the space between lines and the units can be px, %, ems (inherited), rems (relative), or unitless). If it's too small then the lines overlap, which also depends on the font size (and so chose the relative limits for instance the percentage of the font size, or 1.5 etc) 
+
+
+***********************************************
+Chapter: 5. Layouts: Float and Position
+***********************************************
+
+
+-----------------------------------------------
+Video: Introduction to float
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:00            -> float was for side columns in previous legacy code). There is still partial support for it on internet explorer. The concept of floating an impact to have text fit around it is also still relevant, despite the concept of floating being initially created for the legacy code 
+
+
+-----------------------------------------------
+Video: The float and clear properties
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:02            -> early websites were based off of print (e.g magazines), which floated images. This was later adapted into creating floats for entire webpages. Their default is at full width, stacked on top of each other. It’s like in word when you float an image and the text surrounds it, this can be done in CSS. Float: left; on an image -> previously it was stacked on top of the text, this puts the image and the text in the same place, but the text behind the image. Then margin: 10px; stops text from being behind this image in this example. The normal flow is to have the blocks stacked on top of each other 
+
+0:00:08            -> to target specific elements with formatting you define classes int he HTML, e.g via <p class=“class”> then you format that in CSS, via .class{ // ...... }. In this case, we’re trying to make one paragraph float around the image and the one below it not. She’s first changed the margin / float of the image so the text is flowing around it and it’s no longer blocked in a stack. Then undoing this formatting on the second paragraph which we don’t want to float around the image by defining a .clear {.... Class -> and this does clear: both; in CSS (both for left and right) -> to clear the original formatting -> it allows you to set the class of something as that, so text can be formatted to un-float around the floated object 
+
+
+-----------------------------------------------
+Video: Float and collapsed container
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:03:54            -> you can apply clear to a specific element -> to return the flow to the default. If all the elements are floated then the height of their container is 0. If there is not element to apply a float to you have three options -> 1. overflow (used for content which doesn't fit in its container, e.g a text box in powerpoint but the text is overflowing out of it -> overflow: hidden (fits in box)/ auto (scroll bar)/ scroll (always shows scroll bar)) 2. "clearfix" hack, it's a class which is added using divs -> <div class = "clearfix", then in CSS clearfix: after {content:""; display:table; clear:both}, see CSS tricks website. Clearfix is the class name. 3. Use the display property -> define a class called parent, then in CSS .parent {display: flow-root}. Can I Use is another website which you search a line of CSS and it shows you the browser support for that specific line of CSS 
+
+0:05:01            -> codepen example (~ overleaf for code) -> they've defined a class in a div, then in CSS they've formatted it -> float:left; <- before it was two blocks on top of each other, and now they're beside each other. overflow: hidden; <- there is a box around all of the elements, no scroll bars. Commented out display option (which was flow-root) and now 
+
+
+-----------------------------------------------
+Video: Layouts and the box model
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:05:31            -> box model -> interprets the size of an element. The total size an element takes up is the sum of the parts. You can draw a box around something and the parts of the box have different dimensions -> padding etc. Containers used to be floated to create parts of a webpage in legacy code. In an example, she's put <div class="..."> around the entire thing, and then formatted the width ... in CSS. She's changing the formatting of the elements inside it using float: left; in CSS -> and in one case the container for the footer has stacked under the header, but the content is still in the footer. So in the footer she types clear: both; in CSS to clear this. Content, padding, margin <- these are the different elements of a box. The box model fix -> box-sizing: border-box; in CSS -> improves the alignment of the elements (in this case) 
+
+
+-----------------------------------------------
+Video: Position
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:05:08            -> position -> change the flow of the document -> there are x5 different options: static, relative, absolute, fixed and sticky. Position: relative; e.g. she's moving a box left by 10px and down by 10px. Changing one of the positions of the boxes to absolute moves it behind another, percentages on a page -> she's moved one of them right: ...%, bottom: ...% and it's moved the box right and down on the page (as a percentage of the container width). position: relative. Absolute is relative to its nearest positioned container. Fixed positioning -> it stays in the same place even when scrolling through the page. Sticky positioning -> experimental (at the time the course was made) -> it stays in the initial place until the page is scrolled, then moves down with the page (and stops once the end of the container is reached when scrolling through it) 
+
+
+-----------------------------------------------
+Video: Position and z-index
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:03:18            -> positioning of elements along the x/y axis -> elements in a page are stacked -> it's like on powerpoint when you bring a picture to the front -> they're all stacked in an order (there's a stacking order, on the z axis). Block level elements are stacked in the order the appear in the html -> the whole point of the exercise files is open them in code pen, uncomment parts in CSS and see how they respond. Below that in the stack is the inline elements. position: relative; changes the position in the stack -> if things in the stack have their position changed then they are moved to the top of the stack... a full stack developer -> z-index: ....; changes the stacking value of an element in the stack (they're stacked along the z axis) 
+
+
+***********************************************
+Chapter: 6. Layouts: Flexbox and Grid
+***********************************************
+
+
+-----------------------------------------------
+Video: Introduction to Grid and Flexbox
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:01:36            -> flex box and grid -> new layout modules (compared to just floating things to change their positions on a page). Flexbox -> items aligned on a single axis (x or y line), so rows or columns. Grid -> for control over rows and columns (newer). W3C candidate recommendation -> constantly updating/ changing features. How software developers have to keep on top of new developments in tech. Each of them are layout modules and have their own properties -> this chapter is flex box and grid 
+
+
+-----------------------------------------------
+Video: Introduction to Flexbox
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:02:04            -> float used to be used to create different layouts -> but flex box is more modern (flexible box layout). Flex container -> parent element (big box), flex items (elements in the parent box). Items are played out along the x axis -> this is the main axis -> the default is rows, but the x can be changed to y -> if change a property in CSS. Main start/ main end and cross start/ cross end. The cross axis is perpendicular to the main axis. A flex container has to be defined to use flexbox -> display: flex; (this makes each item be displayed in a row) or inline-flex; (this makes the different boxes align next to each other, makes the flex container display inline) 
+
+
+-----------------------------------------------
+Video: Flexbox: Orientation and ordering
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:02:01            -> flex direction -> row, row-reverse, column, column reverse -> to control the axis the flex container items are aligned along. Column -> changes the stacking to be vertical. The actual content isn't changed, just the formatting. Flex-wrap: nowrap <- if there is space left in the container then its size will fit around the things inside it. flex-wrap: wrap <- this lays out the items on multiple rows. flex-wrap: wrap reverse <- the items are in the same order in HTML, but it almost reflects their ordering in a larger box 
+
+
+-----------------------------------------------
+Video: Flexible sizing
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:02:24            -> properties to set sizes of flex items -> flex-basis (initial size), flex-grow (how it will change if have too much room), flex-shrink (how it will change if not enough room). Flex: grow shrink basis; flex: 0 1 100px; . Flex-grow <- the default of this is 0 -> if it's 1 then the flex items spread out to fill up the space. Flex-shrink -> default is 1 (not enough space in the container then all of the items inside it shrink by the same amount, and if it's 0 then they will overflow). Third is flex-basis, ideal sizing -> enough space makes all flex items the size declared, else shrink/ grow -> this is applied directly to the flex items in the container. It controls how they shrink and grow according to the container. 1 -> spread all the way across -> and in this example the others are on the same row. MDN documentation 
+
+
+-----------------------------------------------
+Video: Flexbox exercise
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:02:06            -> creating a flex box layout -> display: flex -> then the items align horizontally. Width:500pc; <- sets the width of the container box. flex: 1 1 100px <- 500 px and 5 items, 100px/ items -> flex grow amount of 1 means each of the items expand by the same amount if the size of the container is changed. This is the first value. The flex shrink value is if the items shrink along with the container when it shrinks or not, this is the second value. flex-wrap: wrap; <- items which don't fit will wrap onto the next row. If the flex of that value is 1 then it will expand to fill the entire next row 
+
+
+-----------------------------------------------
+Video: Flexbox: Alignment
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:02:12            -> centre aligning elements horizontally -> justify-content (aligns items on the main axis), align-items (aligns items on the cross axis), they can be used to distribute space in and around items. There are webpages for justify-content -> start (default), center, space between (evenly 1st and last), space-around, space-evenly -> there is a list of possible ones on the website. This changes the organisation of elements and not the space around them. align-items: stretch -> the flex items are stretched along the axis which is perpendicular to the one which the items are aligned along using flex box 
+
+
+-----------------------------------------------
+Video: Introduction to CSS Grid
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:02:21            -> grid based layouts -> columns -> there are gutters, which are gaps in between each column. CSS grid -> grid container (the parent element, and there are child elements which are the grid elements) and grid elements. grid and display -> display: grid -> the items span the width of the container (there is also an inline option). display: inline-grid <- the items span the width of the content, in line allows the columns to show next to others. Grid lines -> horizontal and vertical lines which divide the box into grids, there is a coordinate system on them (the y axis is backwards, decreases as you go up -> and both axes start with 1). Grid cell, a cell in in the grid. Grid track is gap in between two grids and gutter is gaps in individual grids 
+
+
+-----------------------------------------------
+Video: The explicit grid
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:01:55            -> explicit grids -> grid-template-columns: ..px ...px ...px (these are the three columns for the table , grid-template-rows: ...px ...px (two rows of width ..) -> this entire thing is how to make a table using CSS. fr <- fraction of the available space in the grid container -> it's the ratios of the widths of each of the columns in the grid. repeat() <- grid-template-colunms: 1fr 1fr 1fr (or repeat(3,1fr)), another example is 50px repeat(2, 1fr). You can add gutters if you use 'gap' (gaps in between different columns) -> gap: 10px 20px; <- this is row gap of 10px and column gap of 20px. gap(10% + 20px) <- this doesn't work with the fr unit. longhand/ shorthand 
+
+0:04:59            -> gap: ...px ...px; <- row gap and column gap (shorthand for row-gap, column-gap:). These used to be defined as grid-gap / grid-row-gap / grid-column-gap. In an example - the grid container is first defined, display:grid;, then grid-template-columns: ...px ...px <- the width of each of the columns you want to create in CSS. Alt, repeat(2,...) <- 2 columns, each of width ... -> if you change px to fr then the size of the columns change with the size of the page. Alt, 100px repeat(2, ...fr) <0 one column width 100px and two which are repeated with variable width. There is another option which is grid-template-rows: ...px ...px -> the height of the rows (the default is the height of the content in the grid) 
+
+
+-----------------------------------------------
+Video: The implicit grid
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:01:12            -> grid template rows/ columns to form an explicit grid -> grid-template-columns, grid-template-rows -> you can state the number of items there should be in a table (grid), but if you're on a webpage sometimes you need this to be a function of the number of items that there are on the page (which you don't know beforehand). This is the difference between an implicit and explicit grid, we may or may not have these many items to fill it with depending on the content. Creating an explicit grid (we know we have this many items), grid-template-columns and grid-template-rows with ...px ...x etc -> if we know we may or may not have more information there you can say -> we know the grid will contain this minimum number of items (explicit grid), plus it will contain some extra and we don't know how many of them there will be (implicit grid) 
+
+0:03:27            -> you can create the entire thing using only an implicit grid, or a combination of them. grid-auto-columns, grid-auto-rows. Example -> she's defined the dimensions of a grid as 1x3, but there is an extra row because in the HTML a class="..." has been defined and it's been used 6 times -> so the CSS automatically adds an extra row to the grid which was defined as 1x3 (this is an implicit grid). The height of that row in the table is the same as the height of the content in it (and not the height which was formatted for the other rows in the table). grid-auto-rows is to change the height of extra added on rows -> and grid-auto-columns is more complicated because the content of one row can wrap around onto the next row (which is the next video) 
+
+
+-----------------------------------------------
+Video: Grid placement properties
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:02:56            -> in codepen -> items were put into the implicit rows before the columns, so you have to use grid-column to place an item into the implicit grid. In this example, she's adding a class to the element we want to target -> this is done in HTML. Then in CSS, that class is formatted via .grid-column: 4; (the entire thing is 3 columns wide) -> this adds an extra column which is implicit and whose width is defined via the grid-auto-columns element in CSS -> then grid-column: 4/6; <- for it to span across two implicit columns (unlike grids in Word, an item can be in multiple boxes at the same time) -> for more information see CSS grid website 
+
+0:03:08            -> if you think of a grid like a matrix, for a given element you can tell CSS which of the squares in the matrix the element belongs. Unlike a word table, in CSS tables an item can be in multiple different boxes -> and you state for an item where that starts and end. Grid-column-start: number; and grid-column-end: number; for  each item in the grid is the same as grid-row: 1/3; <- this is the same thing in shorthand (start/end). There is no origin (it starts at (1,1). She’s done an example where one of the elements is surrounded by <div class=“element example”> element </div> <- so it’s part of two classes (element and example), then formatted .example{} in CSS, grid-column <- a fourth implicit column is made and its dimensions are determined by grid-auto-rows/ grid-auto-columns. For more information see css-grid 
+
+
+***********************************************
+Chapter: 7. Advanced Selectors
+***********************************************
+
+
+-----------------------------------------------
+Video: Introduction to advanced selectors
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:46            -> type selectors (match to specific elements), ids and class selectors (to create reusable styles). You can also use different selectors (which is this), and knowing which to use based on the context 
+
+
+-----------------------------------------------
+Video: Relational selectors: Combinators
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:01:28            -> theory -> descendant selectors -> matching patterns. The format of the course is videos on the project (website)  and theory (and theory videos are made of half slides and half examples in code pen, ~ overleaf for code). Descendant selectors -> relationships between nested elements -> these are connected by combinators. Child elements -> parent > child. <sibling></sibling>. H1 + p{} <- matches to the selector on the right. H1 ~ p {} <- this matches to the sibling on the left, general sibling combinator. It’s combining the formatting of the different elements 
+
+0:02:10            -> codepen example -> section p <- in this example there are a few nested elements, section p in CSS targets the ones in HTML which are paragraphs nested into the <section> tag (child elements), section > p <- if we have descendent elements rather than child elements, in CSS it will only target paragraphs directly nested in section (rather than e.g section div p it will only target section p's. The other one is h1 + p in CSS, which targets the paragraph directly after h1. The last one is h1 ~ p -> the general sibling combinator, any elements which come after the sibling combinator 
+
+
+-----------------------------------------------
+Video: Pseudo-class selectors: First and last
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:43            -> theory -> pseudo class selectors -> for styling links. There are also pseudo classes for selecting elements based on their orders (first and last child, style the first or last child element). First-of-type and last-of-type element selector <- matches to the first or last child element of its type 
+
+0:01:48            -> codepen example -> p:first-child {, p:last-of-type { <- it has to be a paragraph (p), is and it's restricted to formatting the first or the last element in the nested set of HTML elements (it has to be the first or last element in the nest, aka container, and it has to be of a specific type) 
+
+
+***********************************************
+Chapter: 8. Fluid and Responsive Layouts
+***********************************************
+
+
+-----------------------------------------------
+Video: Introduction to responsive design
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:02:07            -> screen sizes -> in 2006 most people used desktops/ laptops -> today full stack developers have to consider the different screen sizes (development of touch screens etc). Responsive web design -> design for an optimal viewing experience, design the websites to be flexible to respond to different screen sizes. It's a thought process not a module -> a set of thought processes to make the website viewable on different devices 
+
+
+-----------------------------------------------
+Video: Flexible background images
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:23            -> theory -> adding images to webpages -> <img src="..." alt="...."> (if it's a part of the text), or section{background-image: url(path/to/image);} in CSS <- it depends if it's a background image or an image in the text 
+
+0:03:38            -> codepen example -> in a div around the entire thing, you put a class called background in HTML. Then in the CSS -> you format the background. background-colour: ....;. Background image: url(https:...) -> the image is auto repeated to fill the entire background space (it doesn't re-size), to turn this off -> background-repeat: no-repeat; background-position: ...px ...%; <- the % is the position from the top, there is also background-size: ...px ...%; <- the second number is the percentage of the space it takes up -> you can also background-size:cover; <- part of the image which doesn't fit into the background is clipped. background-position: top right;  <- you need to use large image sizes or the background will be blurry 
+
+0:04:22            -> theory -> background shorthand -> background size value -> background size has to be declared after background position -> url(.../) <- you can use a relative path for the image) -> there is another example which is background-size: ...; <- they've referenced it by the name of the file rather than the entire path. Mixing shorthand and longhand can override some declarations -> MDN web docs 
+
+
+-----------------------------------------------
+Video: Introduction to media queries
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:03:50            -> theory -> media queries -> fluid vs responsive webpages -> you modify the CSS depending on different media types/ features -> @media -> e.g @media screen and (max-width: 1000px) { .... <- when the browser viewport is smaller than 1000px, apply this CSS -> there is a media rule, media type and media feature. Media type -> all (all devices), print (printers, for specific styles for printing e/g background removal), speech (screen reading devices), screen (all devices which aren't print or speech). Media features -> for viewport width/ device orientation. E.g @media (width: ...px) {...}, or @media (orientation:landscape) {...} <- conditions are combined with the and keyword (all fo the conditions have to be true, there are also not and only conditions, beyond the scope of the course). Width media feature -> add the media queries at the bottom the CSS file, or beneath the relevant CSS element. They can also be written into a separate CSS file and be imported -> this is done via @import url("....css") screen and ... 
+
+0:03:54            -> theory continued -> you can load the style sheet into the HMTL file with a link page and a media attribute 
+
+
+-----------------------------------------------
+Video: Media queries, widths, and breakpoints
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:01:26            -> theory -> essentially so if we want @media queries, we can either put them into another CSS file, or put them into the main CSS file. We are using the latter, because there are not enough media queries to consider them in an entirely new CSS file. Width -> state the width before making a change to the layout -> breakpoints (these are the points e.g on the LHS of the page when there are ads and the main content is broken on a news website) -> the amount of breakpoints depends on the size of the device. There is a histogram of the different screen sizes and the most commonly used ones. Focus on where the design and layout needs adjusting -> width is a range feature (you can use a min/ max) 
+
+0:03:09            -> theory continued -> @media (width ...px;) {...} -> there is also @media (min-width: ...px) {...}  and a max, it states a range of values (is the width of the viewport is between a range of values, rather than an exact size). Using min and max can target the same resolution -> for instance 800px=<, and another line targeting 800px -> the later one takes precedent -> you can avoid this by 801px etc. Thought processes / approaches -> desktop first -> format the CSS for desktop screens then size it down with @media queries -> there is a similar approach which is mobile first, which works in the opposite way. Min and max can be combined to create a range -> 400-800px -> use the best option for the design requirements 
+
+
+-----------------------------------------------
+Video: Testing responsive layouts
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:03:01            -> example for screen sizes -> test the resizing of screens by changing the size of the browser in a desktop -> browser stack is another tool which tests across browsers and devices -> you can also test this using developer tools in a webpage -> in this example it's Firefox developer tools -> right click when on the webpage -> dock to right -> there is an icon which she's moved to the right of the page, and she drags it along the page to re-size the viewport -> this simulates how the webpage behaves under different screen sizes. There is another option -> you can select different elements in HTML in the developer tools and it's stating the width -> these can be useful for calculating when to include different breakpoints. Device emulation tools -> in Firefox this is responsive design mode -> the entire pane moves to a different size of device (e.g an iPhone), so you can see how the webpage behaves. Viewport meta tag -> it's already in the HTML template -> <meta name="viewport"> 
+
+
+***********************************************
+Chapter: Conclusion
+***********************************************
+
+
+-----------------------------------------------
+Video: Next steps
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:38            -> foundations of CSS (this course)> Suggested -> animations, font icons, grid, flex box -> practice/ patience (it takes time) 
+

@@ -1,4 +1,4 @@
-# Feynman-Publication-Portfolio-Project
+# CSS-Feynman-Portfolio-Web-Design-Project
 
 This repository contains project coursework for a LinkedIn Learning course on developing CSS skills for website design. I chose to produce a publication portfolio for Richard Feynman as part of this project, to celebrate his accomplishments and contributions to Physics.   
 

@@ -1,6 +1,6 @@
 # CSS-Feynman-Portfolio-Web-Design-Project
 
-This repository contains my project coursework for a LinkedIn Learning course on developing CSS skills for website design. This course involved the creation of a website, for which I chose to produce a publication portfolio for Richard Feynman's scientific work. 
+This repository contains my project coursework for a LinkedIn Learning course on developing CSS skills for website design. This course involved the creation of a website, for which I chose to produce a publication portfolio for Richard Feynman. 
 
 The two files in this repository are lecture notes I created on this course (CourseNotes_CSS Essential Training.txt) and a zip file containing my project work (Feynman Publication Portfolio Project.zip). This zip file contains an html file (index.html), which combines the parts of the project to produce the publication portfolio. This may be viewed by downloading the zip and opening 'index.html'.
 

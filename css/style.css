@@ -1,0 +1,130 @@
+
+/* Global styles 
+----------------------------------------------------------*/
+html {
+    box-sizing: border-box;
+} 
+*, *:before, *:after {
+     box-sizing: inherit;
+}
+/* the above line of code is like the base CSS for all the projects */
+
+body {
+    color: #343434 
+    margin: 0;
+    padding: 0;
+    font-family: font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    line-height: 1.2;
+    /* the above line neans the line height is 1.2 times the font height */
+    /* this re-sets the default style to 0 */
+
+}
+/* code above makes all text grey */
+
+img {
+    width: 300px;
+}
+
+a {
+    color: rgb(142, 0, 251);
+}
+/* to change the colour of links  */
+
+a:hover {
+    text-decoration: none;
+}
+
+.publication a {
+    color:rgb(255, 225, 0);
+    background: darkblue;
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 4px; 
+    margin-bottom: 0px;
+    display: inline-block;
+
+}
+/* buttons */
+
+.publication a:hover{
+    background:rgb(142, 0, 251)
+}
+
+
+/* above code is trying to make links in middle section look more like buttons, the bigger the radius the rounder the corners */
+
+/* Profile 
+----------------------------------------------------------*/
+header, footer {
+    background: #6fc1ff
+}
+/* above code makes background colour of top section dark blue */
+/* the thought process is first set up the HTML file, then link the CSS file, then set up all the background colours, then the text colours */
+
+header, h2 {
+    text-align: center;
+}
+
+.publication-outline {
+    background: #ffa875;
+}
+/* it doesn't work if you define the class to be publication_outline, it has to be publication-outline */
+
+footer {
+    color: rgba(216, 0, 0, 0.783);
+}
+/* the above code changes the colour of the text in the footer to be red */
+
+
+/* Global styles 
+----------------------------------------------------------*/
+h2 {
+    margin: 0;
+}
+
+
+
+.content-wrap {
+    width: 800px;
+    margin: 0 auto;
+    padding: 20px 0px;
+}
+
+h1, h2, h3 {
+    font-family: 'Cinzel Decorative', cursive;
+}
+
+/* to float the text around the images  */
+
+.project-item {
+    overflow: hidden;
+}
+
+.project-item img { 
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.project-item h3 {
+    margin-top: 0;
+}
+
+/* for the dashed line */
+.add-a-dashed-line {
+    border-bottom: 5px dashed #343434;
+
+}
+
+
+.class-for-formatting-contact-information {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.move-to-middle-of-page{
+    text-align: center;
+}
